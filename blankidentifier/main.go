@@ -7,7 +7,12 @@ import (
 )
 
 func main() {
-	response, _ := http.Get("http://google.com")
+	var url string
+
+	fmt.Print("Type URL: ")
+	fmt.Scan(&url)
+
+	response, _ := http.Get(url)
 	body, _ := ioutil.ReadAll(response.Body)
 	response.Body.Close()
 
