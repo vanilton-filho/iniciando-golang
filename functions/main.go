@@ -27,6 +27,13 @@ func variadicFunction(x ...int) int {
 	return res
 }
 
+func inside() func() int {
+	x := 10
+	return func() int {
+		return x * x
+	}
+}
+
 func main() {
 
 	x := doubleMe(5)
@@ -39,4 +46,15 @@ func main() {
 	fmt.Println(hello, world)
 
 	variadicFunction(2022, 2021)
+
+	// clojure
+	z := 0
+	add := func() int {
+		z += 2
+		return z
+	}
+
+	fmt.Println(add())
+	fmt.Println(inside()())
+
 }
